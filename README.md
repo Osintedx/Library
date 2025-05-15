@@ -1,93 +1,102 @@
 # Library
 
-A Web application made for a library to track the products and manage the library.
+A web application developed to manage a library system, track products, and organize operations.
 
-For starters: **Please read all ReadMe.md files in this project completely!**
+> **Important:** Please read all `ReadMe.md` files in this project completely before starting!
 
-## Rules:
+---
 
-### Teams:
+## Project Workflow
 
-- **Devs:** Arman, Kevin, Dominik
-- **Engineers:** Felix, Diana
+### Roles
 
-### Engineers...
+#### Engineers
 
-...will work in the first week and **must submit** their plans and designs till the end of the week to the Devs.
-They are the ones who will plan the entire project (designs, uml, (non)-functional requirements, presentation
-organisation, personas etc.).
+* Responsible for planning in **Week 1**.
+* Must submit **designs and project documentation** by the end of the first week.
+* Deliverables include: UI/UX designs, UML diagrams, functional/non-functional requirements, personas, and presentation organization.
 
-### Devs
+#### Developers
 
-...will work in the second week on the implementation of the backend and frontend based on the result of the Engineers
-work in the first week.
+* Begin implementation in **Week 2** based on Engineers' submissions.
+* Work on frontend and backend components.
+* Tasks will be managed via **Jira** — ensure all work is tracked and updated accordingly.
 
-Each Team will be assigned to tasks on **Jira** by me (Arman), that we will have to complete in the sprint (time of 2
-weeks).
-**!! Use Jira and its functionalities!!**
+---
 
-#### _Note_ (All Teams):
+## Collaboration Guidelines
 
-Just because you are assigned in the one team, does not mean, that you don't have to care about the other.
-Use human sense and provide help where its needed. The software should be running on each computer and **everyone**
-should be able to understand how it works (not necessarily code-wise but function-wise), so that everyone can present
-the results if needed.
+* Cross-team collaboration is encouraged. Everyone should understand how the software works — both functionally and in terms of user experience — regardless of their role.
+* The application must be runnable on each team member's machine.
+* Use Jira for task management, sprint planning, and communication.
 
-### Commiting to this project (Dev Team):
+---
 
-As always: please do not randomly push your commits to master.
+## Git Workflow (Developers)
 
-Create your own dev branch named by your name and submit all changes there.
-Once done, create a pull request to dev.
+* **Do NOT push directly to `master`.**
+* Create your own feature branch named after yourself (e.g., `dev-branch-name`).
+* Once your work is complete, submit a **pull request to `dev`**.
+* Once approved, a pull request can then be made from `dev` to `master`.
 
-If you want your changes to be added to master, you have first to submit them to dev (PR!).
+---
 
-Once your PR has been approved, you can create a pull request from dev to master.
+## Code & Folder Structure
 
-## Organisation (Dev Team):
+### Naming Conventions
 
-- **Files:** **c**amelCase, no space or _ in the name.
-- **Folder** names should be in **C**amelCase if they are not an abbreviation (example API).
-- **Variables:** same as Files (excluding the variables for the envConfig). Since we use typescript again, please make
-  use of the typing!
-    - You are allowed to not approve the Pull Request if someone (including myself) does not type correctly.
+* **Files/Variables:** `camelCase` (except environment config variables)
+* **Folders:** `CamelCase` (unless they are abbreviations, e.g., API)
 
+### Project Structure
 
-- **Structure:**
-    - Database folder should contain the
-        - liquibase files in a Liquibase folder
-        - Mapper folder which will contain 2 subfolders: Entities and Enums.
-            - Entities will have the TypeOrm Entities. These classes will have sum custom functions to cache the Entity
-              if needed (instead of having a separate Services directory)
-            - Enums will have TechCodes.ts files inside of it.
-    - Webpage folder should contain:
-        - one Style folder that contains all .css files,
-        - one folder named images for all assets
-        - one folder named scripts for all .ts files of each feature.
-        - one file named navigation.ts which is used globally for all .html files (adds logic for onButtonClicks).
-    - API folder should have
-        - an app.ts,
-        - authenticationMiddleware.ts and a
-        - Routes folder, that contains all .ts files.
-    - Dist Folder will be in the root (where Database, Webpage, API). This is where the compiled .js file will be.
-    - There will be a nodeModules folder (its auto generated).  (Dist and nodeModules should be added to the .gitignore)
+```
+/Database
+  ├── /Liquibase
+  ├── /Mapper
+      ├── /Entities        # TypeORM entities with optional caching logic
+      └── /Enums           # e.g., TechCodes.ts
 
-- ReadMe.md files will be added in the subfolders, where they are required, in order to start the project without
-  issues.
+/Webpage
+  ├── /Style              # All CSS files
+  ├── /Images             # All assets
+  ├── /Scripts            # Feature-specific TS files
+  └── navigation.ts       # Global navigation logic
 
-### Recommended Tools (All Teams):
+/API
+  ├── app.ts
+  ├── authenticationMiddleware.ts
+  └── /Routes             # All route files
 
-- Webstorm
-- Google Chrome
-- MySQL Workbench
-- Jira (Please use it! It really makes a lot easier, and we can keep track of our work, assign ourselves to tasks, start
-  sprints etc.)
+/Dist                      # Compiled JS files (add to .gitignore)
+/node_modules              # Auto-generated (add to .gitignore)
+```
 
-### Tech stack (Dev Team):
+---
 
-- Liquibase
-- TypeORM
-- Typescript
-- HTML
-- CSS
-- MySQL
+## Development Standards
+
+* Use **TypeScript** and ensure proper typing is followed.
+* Pull requests without proper typing can be rejected.
+* Ensure proper modular structure and naming conventions.
+* All necessary `ReadMe.md` files must be added to relevant subdirectories for smooth onboarding and setup.
+
+---
+
+## Recommended Tools
+
+* WebStorm
+* Google Chrome
+* MySQL Workbench
+* Jira (strongly recommended for task and sprint tracking)
+
+---
+
+## Tech Stack
+
+* **Liquibase**
+* **TypeORM**
+* **TypeScript**
+* **HTML**
+* **CSS**
+* **MySQL**
